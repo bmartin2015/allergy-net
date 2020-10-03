@@ -19,6 +19,12 @@ defmodule AllergyNetWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/", AllergyNetWeb do
+    pipe_through :api
+
+    get "/up", HealthController, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", AllergyNetWeb do
   #   pipe_through :api
